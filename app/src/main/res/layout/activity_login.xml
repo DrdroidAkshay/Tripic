@@ -1,0 +1,104 @@
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:background="@drawable/carpool"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="285dp"
+        android:id="@+id/image_login"
+        >
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:padding="3dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+
+            >
+
+            <TextView
+    android:layout_width="250dp"
+    android:layout_height="match_parent"
+    android:text="Choose your own ways to travel with Tripic "
+    android:textColor="#0a0a0a"
+    android:textStyle="bold"
+    android:textSize="20dp"
+    />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="114dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+            <Button
+                android:id="@+id/using_mobile"
+
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#000000"
+                android:text="Continue with Phone Number"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/google"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="google" />
+
+                <Button
+
+                    android:id="@+id/facebook"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="facebook" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:padding="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:text="By continuing you agree that you have read and accept our T.C and Privacy Policy"
+               android:textStyle="normal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
