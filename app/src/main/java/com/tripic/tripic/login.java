@@ -1,5 +1,6 @@
 package com.tripic.tripic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,7 +25,8 @@ public class login extends AppCompatActivity {
             public void onClick(View view) {
 
                 Toast.makeText(getApplicationContext(),"you clicked on mobile",Toast.LENGTH_SHORT).show();
-
+                Intent intent=new Intent(login.this,home_screen.class);
+                startActivity(intent);
 
             }
         });
