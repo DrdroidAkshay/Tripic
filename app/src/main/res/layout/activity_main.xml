@@ -6,7 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/logo1"
         android:layout_width="258dp"
         android:layout_height="247dp"
         android:layout_alignParentTop="true"

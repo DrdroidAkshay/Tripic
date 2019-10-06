@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView img;
-        img=findViewById(R.id.logo);
+        img=findViewById(R.id.logo1);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
