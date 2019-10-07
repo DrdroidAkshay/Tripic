@@ -2,11 +2,43 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/myaccount_id"
-        android:title="My Account"></item>
+        android:title="My Account">
+
+    </item>
+
+
+
+    <item
+        android:id="@+id/Booking_id"
+        android:title="Book Your Seats">
+
+    </item>
+    <item
+        android:id="@+id/Payment_id"
+        android:title="Payments">
+    </item>
+    <item
+        android:id="@+id/Refer_id"
+        android:title="Refer And Earn">
+    </item>
+    <item
+        android:id="@+id/Knowride_id"
+        android:title="Know Your Rides">
+
+    </item>
+    <item
+        android:id="@+id/About_id"
+        android:title="About">
+    </item>
+
     <item
         android:id="@+id/settings_id"
-        android:title="Settings"></item>
+        android:title="Settings">
+
+    </item>
     <item
         android:id="@+id/logout_id"
-        android:title="Logout"></item>
+        android:title="Logout">
+    </item>
+
 </menu>
