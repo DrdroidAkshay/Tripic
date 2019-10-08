@@ -43,6 +43,7 @@
 
         </ImageView>
         <android.support.design.widget.NavigationView
+            android:id="@+id/navigationview_id"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:menu="@menu/navigation_menu"

@@ -17,7 +17,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".login" />
-        <activity android:name=".home_screen"></activity>
+        <activity android:name=".home_screen" />
+        <activity android:name=".MyAccount" />
+        <activity android:name=".BookYourSeats" />
+        <activity android:name=".Payments" />
+        <activity android:name=".ReferAndEarn" />
+        <activity android:name=".KnowYourRides" />
+        <activity android:name=".About" />
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>
