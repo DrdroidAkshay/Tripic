@@ -8,6 +8,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import static com.tripic.tripic.R.*;
 
@@ -18,6 +21,7 @@ public class home_screen extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
     MenuItem myaccount,bookyourseats,payments,Referandearn,knowyourrides,about,settings,logout;
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,24 @@ public class home_screen extends AppCompatActivity {
         about=menu.findItem(id.About_id);
         settings=menu.findItem(id.settings_id);
         logout=menu.findItem(id.logout_id);
+
+        toolbar=  findViewById(id.toolbar_id);
+        linearLayout=findViewById(id.linearlayout_id);
+
+        linearLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (toolbar.isShown()) {
+                        toolbar.setVisibility(View.INVISIBLE);
+                    } else {
+                        toolbar.setVisibility(View.VISIBLE);
+                    }
+                    return true;
+                } else return false;
+            }
+        });
 
         myaccount.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
