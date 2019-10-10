@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import static com.tripic.tripic.R.*;
 
@@ -21,7 +22,7 @@ public class home_screen extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
     MenuItem myaccount,bookyourseats,payments,Referandearn,knowyourrides,about,settings,logout;
-    LinearLayout linearLayout;
+    RelativeLayout relativeLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +41,9 @@ public class home_screen extends AppCompatActivity {
         logout=menu.findItem(id.logout_id);
 
         toolbar=  findViewById(id.toolbar_id);
-        linearLayout=findViewById(id.linearlayout_id);
+        relativeLayout=findViewById(id.relativelayout_id);
 
-        linearLayout.setOnTouchListener(new View.OnTouchListener() {
+        relativeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
