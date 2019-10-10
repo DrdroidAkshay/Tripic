@@ -1,109 +1,197 @@
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/themeimage1"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:background="@drawable/carpool"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="285dp"
-        android:id="@+id/image_login"
-        >
+    <!--<LinearLayout-->
+        <!--android:background="@drawable/carpool"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="285dp"-->
+        <!--android:id="@+id/image_login"-->
+        <!--&gt;-->
 
+
+    <!--</LinearLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:padding="10dp"-->
+        <!--android:orientation="vertical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<LinearLayout-->
+            <!--android:padding="3dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp"-->
+
+            <!--&gt;-->
+
+            <!--<TextView-->
+    <!--android:layout_width="250dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:text="Choose your own ways to travel with Tripic "-->
+    <!--android:textColor="#0a0a0a"-->
+    <!--android:textStyle="bold"-->
+    <!--android:textSize="20dp"-->
+    <!--/>-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+
+            <!--android:layout_height="114dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:orientation="vertical"-->
+            <!--android:padding="2dp">-->
+
+            <!--<Button-->
+                <!--android:id="@+id/using_mobile"-->
+
+
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:background="@drawable/roundbtnblack"-->
+                <!--android:text="Continue with Phone Number"-->
+                <!--android:textColor="#ffffff"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:padding="5dp">-->
+
+                <!--<Button-->
+                    <!--android:id="@+id/google"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="themeimage2"-->
+                    <!--android:text="google"-->
+                    <!--android:layout_margin="2dp"-->
+                    <!--android:background="@drawable/roundbtnwhite"/>-->
+
+                <!--<Button-->
+
+                    <!--android:id="@+id/facebook"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="themeimage2"-->
+                    <!--android:text="facebook"-->
+                    <!--android:layout_margin="2dp"-->
+                    <!--android:background="@drawable/roundbtnwhite"/>-->
+
+            <!--</LinearLayout>-->
+        <!--</LinearLayout>-->
+
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:padding="3dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+            <!--<TextView-->
+                <!--android:text="By continuing you agree that you have read and accept our T.C and Privacy Policy"-->
+               <!--android:textStyle="normal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent" />-->
+        <!--</LinearLayout>-->
+
+
+    <LinearLayout
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+        android:background="@color/colorTransparentBlack"
+    >
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/tripictext"
+        android:layout_marginTop="50dp"/>
 
     </LinearLayout>
-
     <LinearLayout
-        android:layout_marginTop="5dp"
-        android:padding="10dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:padding="3dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-
-            >
-
-            <TextView
-    android:layout_width="250dp"
-    android:layout_height="match_parent"
-    android:text="Choose your own ways to travel with Tripic "
-    android:textColor="#0a0a0a"
-    android:textStyle="bold"
-    android:textSize="20dp"
-    />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-
-            android:layout_height="114dp"
+        android:layout_height="430dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/colorTransparentBlack">
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:hint="Name"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorTransparentWhite"
+            android:backgroundTint="@color/colorTransparentWhite"
+            android:fontFamily="casual"
+            />
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:hint="Phone"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorTransparentWhite"
+            android:backgroundTint="@color/colorTransparentWhite"
+            android:fontFamily="casual"
+            />
+        <Button
+            android:id="@+id/createaccountbtn_id"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            android:padding="2dp">
-
-            <Button
-                android:id="@+id/using_mobile"
-
-
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/roundbtnblack"
-                android:text="Continue with Phone Number"
-                android:textColor="#ffffff"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <Button
-                    android:id="@+id/google"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="google"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/roundbtnwhite"/>
-
-                <Button
-
-                    android:id="@+id/facebook"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="facebook"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/roundbtnwhite"/>
-
-            </LinearLayout>
-        </LinearLayout>
-
-
+            android:background="@drawable/roundbtntransparentwhite"
+            android:text="Create My Account"
+            android:fontFamily="monospace"
+            android:textColor="@color/colorTransparentWhite"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="or login with"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="20dp"
+            android:fontFamily="casual"/>
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:padding="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:text="By continuing you agree that you have read and accept our T.C and Privacy Policy"
-               android:textStyle="normal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/f"
+                />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:src="@drawable/g"/>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@drawable/t"/>
         </LinearLayout>
-
-
     </LinearLayout>
-
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="0dp"
+    android:background="@color/colorTransparentWhite"
+    android:gravity="center"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already Registered"/>
+</LinearLayout>
 
 </LinearLayout>

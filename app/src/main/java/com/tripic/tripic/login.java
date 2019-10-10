@@ -13,14 +13,9 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Button mobile,facebook,google;
-        mobile=findViewById(R.id.using_mobile);
-        facebook=findViewById(R.id.facebook);
-        google=findViewById(R.id.google);
-
-
-
-        mobile.setOnClickListener(new View.OnClickListener() {
+        Button createaccount;
+        createaccount=findViewById(R.id.createaccountbtn_id);
+        createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -30,31 +25,48 @@ public class login extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-        facebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"you clicked on facebook",Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
-
-
-
-        google.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Toast.makeText(getApplicationContext(),"you clicked on google",Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//        Button mobile,facebook,google;
+//        mobile=findViewById(R.id.using_mobile);
+//        facebook=findViewById(R.id.facebook);
+//        google=findViewById(R.id.google);
+//
+//
+//
+//        mobile.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Toast.makeText(getApplicationContext(),"you clicked on mobile",Toast.LENGTH_SHORT).show();
+//                Intent intent=new Intent(login.this,home_screen.class);
+//                startActivity(intent);
+//
+//            }
+//        });
+//
+//
+//
+//
+//
+//        facebook.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Toast.makeText(getApplicationContext(),"you clicked on facebook",Toast.LENGTH_SHORT).show();
+//
+//
+//            }
+//        });
+//
+//
+//
+//        google.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Toast.makeText(getApplicationContext(),"you clicked on google",Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
 
 
