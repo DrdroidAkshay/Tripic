@@ -13,16 +13,7 @@ public class splashscreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
-//        ImageView img;
-//        img=findViewById(R.id.logo1);
-//        img.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent=new Intent(splashscreen.this,login.class);
-//                 startActivity(intent);
-//
-//            }
-//        });
+
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {

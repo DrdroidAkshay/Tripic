@@ -127,6 +127,7 @@ public class home_screen extends AppCompatActivity {
         toolbar=  findViewById(id.toolbar_id);
         setSupportActionBar(toolbar);
         actionBarDrawerToggle= new ActionBarDrawerToggle(this,drawerLayout, toolbar, string.app_name, string.app_name);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
     }
