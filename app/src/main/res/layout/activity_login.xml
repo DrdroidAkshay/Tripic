@@ -1,7 +1,8 @@
-<LinearLayout android:layout_height="match_parent"
+<RelativeLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:background="@drawable/themeimage1"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--<LinearLayout-->
@@ -104,7 +105,7 @@
 
 
     <LinearLayout
-
+    android:id="@+id/loginimage_id"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="150dp"
@@ -120,12 +121,14 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:background="@color/colorTransparentBlack">
+        android:layout_below="@+id/loginimage_id"
+        android:background="@color/colorTransparentBlack"
+        android:paddingBottom="50dp">
         <EditText
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
             android:hint="Name"
             android:gravity="center"
@@ -135,7 +138,7 @@
             android:fontFamily="casual"
             />
         <EditText
-            android:layout_width="200dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
             android:hint="Phone"
             android:gravity="center"
@@ -183,9 +186,10 @@
     </LinearLayout>
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginBottom="0dp"
+    android:layout_height="50dp"
     android:background="@color/colorTransparentWhite"
+    android:layout_alignParentBottom="true"
+
     android:gravity="center"
     >
     <TextView
@@ -194,4 +198,4 @@
         android:text="Already Registered"/>
 </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
