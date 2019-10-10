@@ -25,7 +25,7 @@ public class home_screen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(layout.activity_home_screen);
+        setContentView(layout.activity_homescreen);
         setuptoolbar();
 
         navigationView=findViewById(id.navigationview_id);
