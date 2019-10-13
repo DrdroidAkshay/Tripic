@@ -40,11 +40,12 @@
                 android:textColor="@color/colorWhite"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/bottomtabs_id"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/colorTransparentWhite"
             android:layout_alignParentBottom="true"
-            android:layout_margin="5dp">
+            android:layout_margin="3dp">
         </LinearLayout>
     </RelativeLayout>
     <LinearLayout

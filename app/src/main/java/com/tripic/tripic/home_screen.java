@@ -23,6 +23,7 @@ public class home_screen extends AppCompatActivity {
     NavigationView navigationView;
     MenuItem myaccount,bookyourseats,payments,Referandearn,knowyourrides,about,settings,logout;
     RelativeLayout relativeLayout;
+    LinearLayout bottomtabs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,7 @@ public class home_screen extends AppCompatActivity {
         about=menu.findItem(id.About_id);
         settings=menu.findItem(id.settings_id);
         logout=menu.findItem(id.logout_id);
-
+        bottomtabs =findViewById(id.bottomtabs_id);
         toolbar=  findViewById(id.toolbar_id);
         relativeLayout=findViewById(id.relativelayout_id);
 
@@ -50,8 +51,10 @@ public class home_screen extends AppCompatActivity {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     if (toolbar.isShown()) {
                         toolbar.setVisibility(View.INVISIBLE);
+                        bottomtabs.setVisibility(View.INVISIBLE);
                     } else {
                         toolbar.setVisibility(View.VISIBLE);
+                        bottomtabs.setVisibility(View.VISIBLE);
                     }
                     return true;
                 } else return false;
