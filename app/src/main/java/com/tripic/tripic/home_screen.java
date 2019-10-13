@@ -26,7 +26,7 @@ public class home_screen extends AppCompatActivity {
     MenuItem myaccount,bookyourseats,payments,Referandearn,knowyourrides,about,settings,logout;
     RelativeLayout relativeLayout;
     LinearLayout bottomtabs;
-    Animation slidedowntop,slideuptop,slidedownbottom,slideupbottom;
+    Animation slidedowntop,slideuptop,slidedownbottom,slideupbottom,fadein,fadeout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +51,8 @@ public class home_screen extends AppCompatActivity {
         slidedowntop= AnimationUtils.loadAnimation(this, anim.slidedowntop);
         slideupbottom= AnimationUtils.loadAnimation(this, anim.slideupbottom);
         slidedownbottom= AnimationUtils.loadAnimation(this, anim.slidedownbottom);
+        fadein= AnimationUtils.loadAnimation(this, anim.fadein);
+        fadeout= AnimationUtils.loadAnimation(this, anim.fadeout);
 
         relativeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -62,12 +64,12 @@ public class home_screen extends AppCompatActivity {
 //                        bottomtabs.setVisibility(View.INVISIBLE);
                         toolbar.startAnimation(slideuptop);
                         toolbar.setVisibility(View.INVISIBLE);
-                        bottomtabs.startAnimation(slidedownbottom);
+                        bottomtabs.startAnimation(fadeout);
                         bottomtabs.setVisibility(View.INVISIBLE);
                     } else {
                         toolbar.startAnimation(slidedowntop);
                         toolbar.setVisibility(View.VISIBLE);
-                        bottomtabs.startAnimation(slideupbottom);
+                        bottomtabs.startAnimation(fadein);
                         bottomtabs.setVisibility(View.VISIBLE);
                     }
                     return true;
