@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -24,6 +26,7 @@ public class home_screen extends AppCompatActivity {
     MenuItem myaccount,bookyourseats,payments,Referandearn,knowyourrides,about,settings,logout;
     RelativeLayout relativeLayout;
     LinearLayout bottomtabs;
+    Animation slidedowntop,slideuptop,slidedownbottom,slideupbottom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,16 +47,27 @@ public class home_screen extends AppCompatActivity {
         toolbar=  findViewById(id.toolbar_id);
         relativeLayout=findViewById(id.relativelayout_id);
 
+        slideuptop= AnimationUtils.loadAnimation(this,R.anim.slideuptop);
+        slidedowntop= AnimationUtils.loadAnimation(this, anim.slidedowntop);
+        slideupbottom= AnimationUtils.loadAnimation(this, anim.slideupbottom);
+        slidedownbottom= AnimationUtils.loadAnimation(this, anim.slidedownbottom);
+
         relativeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     if (toolbar.isShown()) {
+//                        toolbar.setVisibility(View.INVISIBLE);
+//                        bottomtabs.setVisibility(View.INVISIBLE);
+                        toolbar.startAnimation(slideuptop);
                         toolbar.setVisibility(View.INVISIBLE);
+                        bottomtabs.startAnimation(slidedownbottom);
                         bottomtabs.setVisibility(View.INVISIBLE);
                     } else {
+                        toolbar.startAnimation(slidedowntop);
                         toolbar.setVisibility(View.VISIBLE);
+                        bottomtabs.startAnimation(slideupbottom);
                         bottomtabs.setVisibility(View.VISIBLE);
                     }
                     return true;
