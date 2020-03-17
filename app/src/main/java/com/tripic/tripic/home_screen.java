@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -27,6 +28,7 @@ public class home_screen extends AppCompatActivity {
     RelativeLayout relativeLayout;
     LinearLayout bottomtabs;
     Animation slidedowntop,slideuptop,slidedownbottom,slideupbottom,fadein,fadeout;
+    Button havingCar,nothavingCar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +55,23 @@ public class home_screen extends AppCompatActivity {
         slidedownbottom= AnimationUtils.loadAnimation(this, anim.slidedownbottom);
         fadein= AnimationUtils.loadAnimation(this, anim.fadein);
         fadeout= AnimationUtils.loadAnimation(this, anim.fadeout);
+        havingCar= findViewById(id.havingcar_id);
+        nothavingCar= findViewById(id.nothavingcar_id);
 
+        havingCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(home_screen.this,HavingCarActivity.class);
+                startActivity(intent);
+            }
+        });
+        nothavingCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(home_screen.this,NotHavingCarActivity.class);
+                startActivity(intent);
+            }
+        });
         relativeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -151,4 +169,5 @@ public class home_screen extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
     }
+
 }
