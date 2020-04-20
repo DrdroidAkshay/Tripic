@@ -1,13 +1,18 @@
 package com.tripic.tripic;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -22,16 +27,18 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.util.Calendar;
 
-public class NotHavingCarActivity extends AppCompatActivity {
+public class NotHavingCarActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    EditText from,to,date;
+    EditText from,to;
+    TextView date,time;
     Button submitbtn;
     String status;
     String details;
-//    ListView listView;
-//    ArrayList<String> arrayList;
-//    ArrayAdapter<String> arrayAdapter;
+    TimePickerDialog timePickerDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,24 +48,35 @@ public class NotHavingCarActivity extends AppCompatActivity {
         from=findViewById(R.id.from_id);
         to=findViewById(R.id.to_id);
         date=findViewById(R.id.date_id);
+        time=findViewById(R.id.time_id);
         submitbtn=findViewById(R.id.havingcarbookingbtn_id);
-//        listView=findViewById(R.id.listview_id);
-//
-//        arrayList=new ArrayList<String>();
-//
-//            arrayList.add("Available Rides will appear Here:" );
-//
-//        arrayAdapter=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,arrayList);
-//        listView.setAdapter(arrayAdapter);
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                DialogFragment datepicker= new DatePickerFragment();
+                datepicker.show(getSupportFragmentManager(),"date picker");
+
+
+            }
+        });
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                timePickerDialog=new TimePickerDialog(NotHavingCarActivity.this,(timepicker,hourofday,minutes)->{
+                    time.setText(hourofday + ":" + minutes);
+                }, 0,0,false
+                );
+                timePickerDialog.show();
+            }
+
+        });
         submitbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                arrayList.add(from.getText().toString());
-//
-//                createRide();
-                Intent intent=new Intent(NotHavingCarActivity.this,showridesforhaveride.class);
-                startActivity(intent);
+
+                createRide();
+
             }
         });
     }
@@ -133,5 +151,16 @@ public class NotHavingCarActivity extends AppCompatActivity {
         CreateRide createRide=new CreateRide();
         createRide.execute(urlsuffix);
     }
-}
 
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
+        Calendar calendar= Calendar.getInstance();
+        calendar.set(Calendar.YEAR,year);
+        calendar.set(Calendar.MONTH,month);
+        calendar.set(Calendar.DAY_OF_MONTH,day);
+
+        String DateSelected= DateFormat.getDateInstance(DateFormat.DEFAULT).format(calendar.getTime());
+        date.setText(DateSelected);
+    }
+}

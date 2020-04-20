@@ -40,18 +40,54 @@
         android:backgroundTint="@color/colorTransparentWhite"
         android:fontFamily="casual"
         />
-    <EditText
+
+    <TextView
         android:id="@+id/date_id"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:hint="Date"
-        android:layout_gravity="center"
         android:gravity="center"
+        android:layout_gravity="center"
         android:textColor="@color/colorWhite"
+        android:textSize="18dp"
         android:textColorHint="@color/colorTransparentWhite"
         android:backgroundTint="@color/colorTransparentWhite"
         android:fontFamily="casual"
+        android:paddingTop="7dp"
+        android:paddingBottom="3dp"
         />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="@color/colorTransparentWhite"
+        >
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/time_id"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Time"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="18dp"
+        android:textColorHint="@color/colorTransparentWhite"
+        android:backgroundTint="@color/colorTransparentWhite"
+        android:fontFamily="casual"
+        android:paddingTop="12dp"
+        android:paddingBottom="3dp"
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="@color/colorTransparentWhite"
+        >
+    </LinearLayout>
     <Button
         android:id="@+id/havingcarbookingbtn_id"
         android:layout_width="200dp"
