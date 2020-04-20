@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -68,6 +67,9 @@ public class registration extends AppCompatActivity {
         String username=name.getText().toString().trim();
         String userphone=phone.getText().toString().trim();
         String userpassword=password.getText().toString().trim();
+        username=username.replace(" ","+");
+        userphone=userphone.replace(" ","+");
+        userpassword=userpassword.replace(" ","+");
         register(username,userphone,userpassword);
     }
     private void register(final String username, final String userphone, final String userpassword){
@@ -122,12 +124,12 @@ public class registration extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), details,
                             Toast.LENGTH_LONG).show();
 
-                    sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    sharedPreferences = getSharedPreferences("userdetails", 0);
                     editor=sharedPreferences.edit();
                     editor.putString("username",username);
                     editor.putString("userphone",userphone);
                     editor.putString("userpassword",userpassword);
-                    editor.apply();
+                    editor.commit();
                     Intent intent=new Intent(registration.this,home_screen.class);
                     startActivity(intent);
                 }

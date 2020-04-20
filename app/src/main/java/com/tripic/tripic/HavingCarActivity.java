@@ -4,10 +4,12 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -49,6 +51,8 @@ public class HavingCarActivity extends AppCompatActivity implements DatePickerDi
         date=findViewById(R.id.date_id);
         time=findViewById(R.id.time_id);
         submitbtn=findViewById(R.id.havingcarbookingbtn_id);
+
+
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,48 +84,68 @@ public class HavingCarActivity extends AppCompatActivity implements DatePickerDi
         });
     }
     private void createRide(){
+        SharedPreferences sharedPreferences= getSharedPreferences("userdetails", 0);
+        String username=sharedPreferences.getString("username","");
+        String userphone=sharedPreferences.getString("userphone","");
         String ridefrom=from.getText().toString().trim();
         String rideto=to.getText().toString().trim();
         String ridedate=date.getText().toString().trim();
-        create(ridefrom,rideto,ridedate);
+        String ridetime=time.getText().toString().trim();
+        username=username.replace(" ","+");
+        userphone=userphone.replace(" ","+");
+        ridefrom=ridefrom.replace(" ","+");
+        rideto=rideto.replace(" ","+");
+        ridedate=ridedate.replace(" ","+");
+        ridetime=ridetime.replace(" ","+");
+        create(username,userphone,ridefrom,rideto,ridedate,ridetime);
     }
-    private void create(final String ridefrom, final String rideto, final String ridedate){
-        final String urlsuffix="?ridefrom="+ridefrom+"&rideto="+rideto+"&ridedate="+ridedate;
+    private void create(final String username,final String userphone,final String ridefrom, final String rideto, final String ridedate, final  String ridetime){
+        final String urlsuffix="?username="+username+"&userphone="+userphone+"&ridefrom="+ridefrom+"&rideto="+rideto+"&ridedate="+ridedate+"&ridetime="+ridetime;
         class CreateRide extends AsyncTask<String,Void,String> {
             ProgressDialog loading;
 
             @Override
             protected void onPreExecute() {
+                Log.i("000000","fghhhhjj");
                 super.onPreExecute();
                 loading=ProgressDialog.show(HavingCarActivity.this,"Please wait",null,true,true);
             }
             @Override
             protected String doInBackground(String... params) {
                 URL url = null;
+
                 try {
-                    url = new URL("http://fullmoonfilms.000webhostapp.com/createride.php?ridefrom="+ridefrom+"&rideto="+rideto+"&ridedate="+ridedate);
+                    Log.i("000000","fghhhhjj");
+                    url = new URL("http://fullmoonfilms.000webhostapp.com/createride.php?username="+username+"&userphone="+userphone+"&ridefrom="+ridefrom+"&rideto="+rideto+"&ridedate="+ridedate+"&ridetime="+ridetime);
                 } catch (MalformedURLException e) {
+                    Log.i("wwwwwww","fghhhhjj");
                     e.printStackTrace();
                 }
                 HttpURLConnection urlConnection = null;
                 try {
+                    Log.i("aaaaaa","fghhhhjj");
                     urlConnection = (HttpURLConnection) url.openConnection();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Log.i("yyyyyyy","fghhhhjj");
                 }
                 try {
+                    Log.i("dddddd","fghhhhjj");
                     InputStream in = new BufferedInputStream(urlConnection.getInputStream());
                     BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(in));
                     String line="";
                     line=bufferedReader.readLine();
                     JSONArray jsonArray= new JSONArray(line);
                     JSONObject jsonObject= (JSONObject) jsonArray.get(0);
+                    Log.i("mmmmmmmm","fghhhhjj");
                     status= (String) jsonObject.get("status");
                     details= (String) jsonObject.get("details");
 
                 } catch (IOException e) {
+                    Log.i("vvvvvvv","fghhhhjj");
                     e.printStackTrace();
                 } catch (JSONException e) {
+                    Log.i("kkkkkk","fghhhhjj");
                     e.printStackTrace();
                 } finally {
                     urlConnection.disconnect();
@@ -133,6 +157,7 @@ public class HavingCarActivity extends AppCompatActivity implements DatePickerDi
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
+                Log.i("aaaaaa","fghhhhjj");
                 if (status.equals("success")){
                     Toast.makeText(getApplicationContext(), details,
                             Toast.LENGTH_LONG).show();

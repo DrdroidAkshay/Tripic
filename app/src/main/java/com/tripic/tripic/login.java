@@ -56,6 +56,8 @@ public class login extends AppCompatActivity {
     private void loginUser(){
         String userphone=phone.getText().toString().trim();
         String userpassword=password.getText().toString().trim();
+        userphone=userphone.replace(" ","+");
+        userpassword=userpassword.replace(" ","+");
         login(userphone,userpassword);
     }
     private void login(final String userphone, final String userpassword){
