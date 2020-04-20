@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -22,7 +21,7 @@ public class splashscreen extends AppCompatActivity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(splashscreen.this,login.class);
+                Intent mainIntent = new Intent(splashscreen.this, registration.class);
                 splashscreen.this.startActivity(mainIntent);
                 splashscreen.this.finish();
             }

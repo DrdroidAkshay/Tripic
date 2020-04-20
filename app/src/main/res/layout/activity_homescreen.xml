@@ -30,7 +30,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@color/colorBlack"
-            android:text="Having Car"
+            android:text="Create Ride"
                 android:layout_marginBottom="10dp"
             android:textColor="@color/colorWhite" />
             <Button
@@ -38,10 +38,11 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:background="@color/colorBlack"
-                android:text="Not Having Car"
+                android:text="Have Ride"
                 android:textColor="@color/colorWhite"/>
         </LinearLayout>
         <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/bottomtabs_id"
             android:layout_width="match_parent"
             android:layout_height="50dp"
