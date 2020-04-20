@@ -2,8 +2,10 @@ package com.tripic.tripic;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -29,11 +31,16 @@ public class login extends AppCompatActivity {
     Button loginbtn;
     String Json_string;
     String status;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor=sharedPreferences.edit();
 
         phone=findViewById(R.id.loginphone_id);
         password=findViewById(R.id.loginpassword_id);
@@ -102,6 +109,7 @@ public class login extends AppCompatActivity {
 //                startActivity(intent);
                 loading.dismiss();
                 if (status.equals("success")){
+
                     Intent intent=new Intent(login.this,home_screen.class);
                     startActivity(intent);
                 }

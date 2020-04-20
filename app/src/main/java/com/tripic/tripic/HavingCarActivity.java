@@ -39,7 +39,6 @@ public class HavingCarActivity extends AppCompatActivity implements DatePickerDi
     String details;
     TimePickerDialog timePickerDialog;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
