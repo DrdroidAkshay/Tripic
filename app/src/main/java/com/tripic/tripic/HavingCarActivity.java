@@ -6,10 +6,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -24,7 +22,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 
 public class HavingCarActivity extends AppCompatActivity {
 
@@ -32,9 +29,9 @@ public class HavingCarActivity extends AppCompatActivity {
     Button submitbtn;
     String status;
     String details;
-    ListView listView;
-    ArrayList<String> arrayList;
-    ArrayAdapter<String> arrayAdapter;
+//    ListView listView;
+//    ArrayList<String> arrayList;
+//    ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +56,9 @@ public class HavingCarActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                arrayList.add(from.getText().toString());
 //
-                createRide();
+//                createRide();
+                Intent intent=new Intent(HavingCarActivity.this,showridesforcreateride.class);
+                startActivity(intent);
             }
         });
     }
@@ -120,7 +119,7 @@ public class HavingCarActivity extends AppCompatActivity {
                 if (status.equals("success")){
                     Toast.makeText(getApplicationContext(), details,
                             Toast.LENGTH_LONG).show();
-                    Intent intent=new Intent(HavingCarActivity.this,home_screen.class);
+                    Intent intent=new Intent(HavingCarActivity.this,showridesforcreateride.class);
                     startActivity(intent);
                 }
                 else {

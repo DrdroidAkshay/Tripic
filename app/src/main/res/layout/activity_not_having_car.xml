@@ -2,19 +2,69 @@
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="20dp"
-    android:background="@drawable/mapwallpaper"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/roundedcornerwhitebox"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/roundedcornerwhitebox"/>
+    android:background="@color/colorBlack"
+    android:paddingTop="50dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Booking Details"
+        android:layout_gravity="center"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="casual"/>
+
+    <EditText
+        android:id="@+id/from_id"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="From"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTransparentWhite"
+        android:backgroundTint="@color/colorTransparentWhite"
+        android:fontFamily="casual"
+        />
+    <EditText
+        android:id="@+id/to_id"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="To"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTransparentWhite"
+        android:backgroundTint="@color/colorTransparentWhite"
+        android:fontFamily="casual"
+        />
+    <EditText
+        android:id="@+id/date_id"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTransparentWhite"
+        android:backgroundTint="@color/colorTransparentWhite"
+        android:fontFamily="casual"
+        />
+    <Button
+        android:id="@+id/havingcarbookingbtn_id"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundbtnwhite"
+        android:layout_gravity="center"
+        android:text="Submit"
+        android:fontFamily="monospace"
+        android:textColor="@color/colorBlack"/>
+    <!--    <ListView-->
+    <!--        android:id="@+id/listview_id"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:padding="30dp"/>-->
 </LinearLayout>
