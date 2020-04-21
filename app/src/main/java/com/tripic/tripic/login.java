@@ -112,6 +112,10 @@ public class login extends AppCompatActivity {
                 loading.dismiss();
                 if (status.equals("success")){
 
+                    sharedPreferences = getSharedPreferences("userdetails", 0);
+                    editor=sharedPreferences.edit();
+                    editor.putString("loginstatus","true");
+                    editor.commit();
                     Intent intent=new Intent(login.this,home_screen.class);
                     startActivity(intent);
                 }

@@ -1,6 +1,7 @@
 package com.tripic.tripic;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -29,6 +30,8 @@ public class home_screen extends AppCompatActivity {
     LinearLayout bottomtabs;
     Animation slidedowntop,slideuptop,slidedownbottom,slideupbottom,fadein,fadeout;
     Button havingCar,nothavingCar;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -154,7 +157,12 @@ public class home_screen extends AppCompatActivity {
         logout.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
-
+                sharedPreferences = getSharedPreferences("userdetails", 0);
+                editor=sharedPreferences.edit();
+                editor.putString("loginstatus","false");
+                editor.commit();
+                Intent intent=new Intent(home_screen.this,registration.class);
+                startActivity(intent);
                 return true;
             }
         });

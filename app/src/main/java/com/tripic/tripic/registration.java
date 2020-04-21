@@ -129,6 +129,7 @@ public class registration extends AppCompatActivity {
                     editor.putString("username",username);
                     editor.putString("userphone",userphone);
                     editor.putString("userpassword",userpassword);
+                    editor.putString("loginstatus","true");
                     editor.commit();
                     Intent intent=new Intent(registration.this,home_screen.class);
                     startActivity(intent);
