@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -148,6 +149,15 @@ public class NotHavingCarActivity extends AppCompatActivity implements DatePicke
                     Toast.makeText(getApplicationContext(), details,
                             Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(NotHavingCarActivity.this,showridesforhaveride.class);
+                    SharedPreferences sharedPreferences= getSharedPreferences("userdetails", 0);
+                    Log.i("aaaaaaaaaaaaaaaaaa",rideto);
+                    SharedPreferences.Editor editor;
+                    editor=sharedPreferences.edit();
+                    editor.putString("rideto",rideto);
+                    editor.putString("ridefrom",ridefrom);
+                    editor.putString("ridedate",ridedate);
+                    editor.putString("ridetime",ridetime);
+                    editor.commit();
                     startActivity(intent);
                 }
                 else {
