@@ -85,12 +85,14 @@ public class HavingCarActivity extends AppCompatActivity implements DatePickerDi
     }
     private void createRide(){
         SharedPreferences sharedPreferences= getSharedPreferences("userdetails", 0);
+
         String username=sharedPreferences.getString("username","");
         String userphone=sharedPreferences.getString("userphone","");
         String ridefrom=from.getText().toString().trim();
         String rideto=to.getText().toString().trim();
         String ridedate=date.getText().toString().trim();
         String ridetime=time.getText().toString().trim();
+
         username=username.replace(" ","+");
         userphone=userphone.replace(" ","+");
         ridefrom=ridefrom.replace(" ","+");
@@ -162,6 +164,17 @@ public class HavingCarActivity extends AppCompatActivity implements DatePickerDi
                     Toast.makeText(getApplicationContext(), details,
                             Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(HavingCarActivity.this,showridesforcreateride.class);
+                    Log.i("aaaaaaaaaaaaaaaaaa","bbbbbbb");
+                    Log.i("bbbbbbbbbbbbbbb",rideto);
+                    SharedPreferences sharedPreferences= getSharedPreferences("userdetails", 0);
+                    Log.i("aaaaaaaaaaaaaaaaaa",rideto);
+                    SharedPreferences.Editor editor;
+                    editor=sharedPreferences.edit();
+                    editor.putString("rideto",rideto);
+                    editor.putString("ridefrom",ridefrom);
+                    editor.putString("ridedate",ridedate);
+                    editor.putString("ridetime",ridetime);
+                    editor.commit();
                     startActivity(intent);
                 }
                 else {
