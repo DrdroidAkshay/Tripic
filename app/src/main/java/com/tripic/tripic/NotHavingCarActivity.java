@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
@@ -75,20 +76,30 @@ public class NotHavingCarActivity extends AppCompatActivity implements DatePicke
             @Override
             public void onClick(View view) {
 
-                createRide();
+                haveRide();
 
             }
         });
     }
-    private void createRide(){
+    private void haveRide(){
+        SharedPreferences sharedPreferences= getSharedPreferences("userdetails", 0);
+        String username=sharedPreferences.getString("username","");
+        String userphone=sharedPreferences.getString("userphone","");
         String ridefrom=from.getText().toString().trim();
         String rideto=to.getText().toString().trim();
         String ridedate=date.getText().toString().trim();
-        create(ridefrom,rideto,ridedate);
+        String ridetime=time.getText().toString().trim();
+        username=username.replace(" ","+");
+        userphone=userphone.replace(" ","+");
+        ridefrom=ridefrom.replace(" ","+");
+        rideto=rideto.replace(" ","+");
+        ridedate=ridedate.replace(" ","+");
+        ridetime=ridetime.replace(" ","+");
+        have(username,userphone,ridefrom,rideto,ridedate,ridetime);
     }
-    private void create(final String ridefrom, final String rideto, final String ridedate){
-        final String urlsuffix="?ridefrom="+ridefrom+"&rideto="+rideto+"&ridedate="+ridedate;
-        class CreateRide extends AsyncTask<String,Void,String> {
+    private void have(final String username,final String userphone,final String ridefrom, final String rideto, final String ridedate, final  String ridetime){
+        final String urlsuffix="?username="+username+"&userphone="+userphone+"&ridefrom="+ridefrom+"&rideto="+rideto+"&ridedate="+ridedate+"&ridetime="+ridetime;
+        class HaveRide extends AsyncTask<String,Void,String> {
             ProgressDialog loading;
 
             @Override
@@ -100,8 +111,7 @@ public class NotHavingCarActivity extends AppCompatActivity implements DatePicke
             protected String doInBackground(String... params) {
                 URL url = null;
                 try {
-                    url = new URL("http://fullmoonfilms.000webhostapp.com/haveride.php?ridefrom="+ridefrom+"&rideto="+rideto+"&ridedate="+ridedate);
-                } catch (MalformedURLException e) {
+                    url = new URL("http://fullmoonfilms.000webhostapp.com/haveride.php?username="+username+"&userphone="+userphone+"&ridefrom="+ridefrom+"&rideto="+rideto+"&ridedate="+ridedate+"&ridetime="+ridetime);                } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
                 HttpURLConnection urlConnection = null;
@@ -148,8 +158,8 @@ public class NotHavingCarActivity extends AppCompatActivity implements DatePicke
 
 
         }
-        CreateRide createRide=new CreateRide();
-        createRide.execute(urlsuffix);
+        HaveRide haveRide=new HaveRide();
+        haveRide.execute(urlsuffix);
     }
 
     @Override
