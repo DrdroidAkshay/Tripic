@@ -1,6 +1,8 @@
 package com.tripic.tripic;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     private List<Listitem> listitems;
     private Context context;
@@ -46,6 +50,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
                     Toast.makeText(context,listitem.getUsername(),
                             Toast.LENGTH_LONG).show();
+
+//                    SharedPreferences sharedPreferences= this.getClass().getSharedPreferences("userdetails", 0);
+//                    SharedPreferences.Editor editor;
+//                    editor=sharedPreferences.edit();
+//                    editor.putString("profilename",listitem.getUsername());
+//                    editor.putString("profimefromto",listitem.getRidefrom()+" To "+listitem.getRideto());
+//                    editor.putString("profiledate",listitem.getRidedate());
+//                    editor.putString("profiletime",listitem.getRidetime());
+//                    editor.commit();
+
+
+                    final Intent intent;
+                    intent =  new Intent(context, Riderdetails.class);
+                    intent.putExtra("profilename",listitem.getUsername());
+                    intent.putExtra("profilefromto",listitem.getRidefrom()+" To "+listitem.getRideto());
+                    intent.putExtra("profiledate",listitem.getRidedate());
+                    intent.putExtra("profiletime",listitem.getRidetime());
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
                 }
             });
 
