@@ -31,6 +31,7 @@ public class login extends AppCompatActivity {
     Button loginbtn;
     String Json_string;
     String status;
+    String username;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
@@ -92,6 +93,7 @@ public class login extends AppCompatActivity {
                     JSONArray jsonArray= new JSONArray(line);
                     JSONObject jsonObject= (JSONObject) jsonArray.get(0);
                     status= (String) jsonObject.get("status");
+                    username= (String) jsonObject.get("name");
 
 
                 } catch (IOException e) {
@@ -115,6 +117,7 @@ public class login extends AppCompatActivity {
                     sharedPreferences = getSharedPreferences("userdetails", 0);
                     editor=sharedPreferences.edit();
                     editor.putString("loginstatus","true");
+                    editor.putString("username",username);
                     editor.commit();
                     Intent intent=new Intent(login.this,home_screen.class);
                     startActivity(intent);

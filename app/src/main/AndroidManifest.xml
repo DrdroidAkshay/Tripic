@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Listitem"></activity>
+        <activity android:name=".Riderdetails"></activity>
+        <activity android:name=".Listitem" />
         <activity android:name=".showridesforhaveride" />
         <activity android:name=".showridesforcreateride" />
         <activity android:name=".login" />

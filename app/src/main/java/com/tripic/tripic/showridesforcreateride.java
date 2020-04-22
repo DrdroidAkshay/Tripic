@@ -65,7 +65,7 @@ public class showridesforcreateride extends AppCompatActivity {
         to=to.replace(" ","+");
         from=from.replace(" ","+");
 
-
+        Log.i("llllllllllllllllll",name);
         url = "http://fullmoonfilms.000webhostapp.com/showlistforcreateride.php?username="+name+"&userphone="+phone+"&ridedate="+date+"&ridetime="+time+"&rideto="+to+"&ridefrom="+from;
 
         loaddata();
@@ -145,6 +145,7 @@ public class showridesforcreateride extends AppCompatActivity {
             protected String doInBackground(String... params) {
                 java.net.URL url = null;
                 try {
+                    Log.i("llllllllllllllllll",name);
                     url = new URL("http://fullmoonfilms.000webhostapp.com/showlistforcreateride.php?username="+name+"&userphone="+phone+"&ridedate="+date+"&ridetime="+time+"&rideto="+to+"&ridefrom="+from);
                 } catch (MalformedURLException e) {
                     e.printStackTrace();

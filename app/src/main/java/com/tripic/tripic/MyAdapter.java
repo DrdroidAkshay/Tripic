@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private List<Listitem> listitems;
     private Context context;
+
 
     public MyAdapter(List<Listitem> listitems, Context context) {
         this.listitems = listitems;
@@ -29,12 +32,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     @Override
+
+
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
             Listitem listitem=listitems.get(i);
 
             viewHolder.listitemusername.setText(listitem.getUsername());
             viewHolder.listitemdate.setText(listitem.getRidedate());
             viewHolder.listitemtime.setText(listitem.getRidetime());
+            viewHolder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    Toast.makeText(context,listitem.getUsername(),
+                            Toast.LENGTH_LONG).show();
+                }
+            });
+
+
     }
 
     @Override
@@ -44,12 +59,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     public  class ViewHolder extends RecyclerView.ViewHolder{
         public TextView listitemusername,listitemdate,listitemtime;
+        public LinearLayout linearLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             listitemusername=(TextView) itemView.findViewById(R.id.name_id);
             listitemdate=(TextView) itemView.findViewById(R.id.date_id);
             listitemtime=(TextView) itemView.findViewById(R.id.time_id);
+            linearLayout=(LinearLayout) itemView.findViewById(R.id.cardviewlinearlayout_id);
+
         }
     }
+
 }
