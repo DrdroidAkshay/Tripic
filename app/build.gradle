@@ -33,4 +33,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     androidTestImplementation 'com.android.support.test:runner:themeimage2.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.mikhaellopez:circularimageview:3.2.0'
 }
