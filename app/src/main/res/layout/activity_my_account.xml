@@ -37,8 +37,25 @@
             app:civ_shadow="true"
             app:civ_shadow_radius="1"/>
 
-    </RelativeLayout>
 
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/name_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:layout_marginTop="40dp"/>
+    <TextView
+        android:id="@+id/phonw_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Phone"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:layout_marginTop="5dp"/>
 
 
 </LinearLayout>
