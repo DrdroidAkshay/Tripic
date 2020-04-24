@@ -32,20 +32,11 @@
             android:scaleType="centerInside"
             android:src="@drawable/t"
             app:civ_border_color="@color/colorWhite"
-            android:background="@drawable/roundbtnwhite"
+            android:background="@drawable/roundbtngrey"
             app:civ_border_width="2dp"
             app:civ_shadow="true"
             app:civ_shadow_radius="1"/>
 
-<!--        <com.mikhaellopez.circularimageview.CircularImageView-->
-<!--            android:id="@+id/img_plus"-->
-<!--            android:layout_width="28dp"-->
-<!--            android:layout_height="28dp"-->
-<!--            android:layout_alignBottom="@id/img_profile"-->
-<!--            android:layout_alignParentRight="true"-->
-<!--            android:src="@drawable/t"-->
-<!--            app:civ_shadow="true"-->
-<!--            app:civ_shadow_radius="1"/>-->
     </RelativeLayout>
 
 
