@@ -52,7 +52,7 @@
         android:id="@+id/phonw_profile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Phone"
+        android:hint="Contact"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
         android:layout_marginTop="5dp"/>
