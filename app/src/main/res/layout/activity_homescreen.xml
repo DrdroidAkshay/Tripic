@@ -18,6 +18,34 @@
             android:layout_margin="5dp"
             android:background="@drawable/roundedcornerbox"
             android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                >
+
+                <ImageView
+                    android:id="@+id/notificationicon_id"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/notificationbell"
+                    />
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/notificationpointer_id"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="centerInside"
+                    app:civ_border_color="@color/colorWhite"
+                    android:background="@drawable/roundbtnwhite"
+                    app:civ_border_width="2dp"
+                    app:civ_shadow="true"
+                    app:civ_shadow_radius="1"/>
+
+
+
+            </RelativeLayout>
 
         </android.support.v7.widget.Toolbar>
         <LinearLayout
