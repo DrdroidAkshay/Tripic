@@ -1,5 +1,6 @@
 package com.tripic.tripic;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -18,9 +20,22 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
-import static com.tripic.tripic.R.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static com.tripic.tripic.R.anim;
+import static com.tripic.tripic.R.id;
+import static com.tripic.tripic.R.layout;
+import static com.tripic.tripic.R.string;
 
 public class home_screen extends AppCompatActivity {
 
@@ -37,6 +52,7 @@ public class home_screen extends AppCompatActivity {
     Button havingCar,nothavingCar;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    String url,status,username,requestername;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -188,6 +204,11 @@ public class home_screen extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        SharedPreferences sharedPreferences= getSharedPreferences("userdetails", 0);
+        username=sharedPreferences.getString("username","");
+        username=username.replace(" ","+");
+        url = "http://fullmoonfilms.000webhostapp.com/notificationmanagement.php?username="+ username;
+        notificationcheck();
     }
 
     private void setuptoolbar(){
@@ -199,5 +220,44 @@ public class home_screen extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
     }
+    private void notificationcheck(){
+        ProgressDialog loading=ProgressDialog.show(home_screen.this,"Please wait",null,true,true);
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        loading.dismiss();
+                        try {
+                            Log.i("tttttttttt","aaaaaaaaaaaa");
+                            JSONArray jsonArray=new JSONArray(response);
+                            JSONObject o=jsonArray.getJSONObject(0);
+                            Log.i("tttttttttt","ppppppppppppp");
 
+                            status=  o.getString("result");
+                            requestername=  o.getString("requestername");
+                            Log.i("tttttttttt","cccccccccc");
+
+                            Log.i("cccccccccc",status);
+                            if (status.equals("success")){
+                                notificationpointer.setVisibility(View.VISIBLE);
+                            }
+                            else {
+                                notificationpointer.setVisibility(View.GONE);
+                            }
+                        } catch (JSONException ex) {
+                            Log.i("bbbbbbbbbb", String.valueOf(ex));
+                            notificationpointer.setVisibility(View.GONE);
+                            ex.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
 }
