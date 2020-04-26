@@ -118,6 +118,7 @@ public class login extends AppCompatActivity {
                     editor=sharedPreferences.edit();
                     editor.putString("loginstatus","true");
                     editor.putString("username",username);
+                    editor.putString("userphone",userphone);
                     editor.commit();
                     Intent intent=new Intent(login.this,home_screen.class);
                     startActivity(intent);

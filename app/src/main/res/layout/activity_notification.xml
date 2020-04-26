@@ -9,7 +9,7 @@
     <TextView
 
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:text="Notifications"
         android:gravity="center"
         android:fontFamily="casual"
@@ -17,12 +17,12 @@
         android:background="@color/colorTransparentWhite"
         android:textColor="@color/colorBlack"/>
 
-<!--    <android.support.v7.widget.RecyclerView-->
-<!--        android:paddingTop="7dp"-->
-<!--        android:id="@+id/recyclerview_id"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
+    <android.support.v7.widget.RecyclerView
+        android:paddingTop="7dp"
+        android:id="@+id/notificationrecyclerview_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-<!--        />-->
+        />
 
 </LinearLayout>

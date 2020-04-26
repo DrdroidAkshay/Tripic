@@ -55,6 +55,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     intent.putExtra("profilefromto",listitem.getRidefrom()+" To "+listitem.getRideto());
                     intent.putExtra("profiledate",listitem.getRidedate());
                     intent.putExtra("profiletime",listitem.getRidetime());
+                    intent.putExtra("profilephone",listitem.getUserphone());
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 }

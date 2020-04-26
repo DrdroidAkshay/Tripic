@@ -25,7 +25,7 @@ public class Riderdetails extends AppCompatActivity {
 
     TextView name,fromto,date,time;
     ImageView profilepic;
-    String profilename,profilefromto,profiledate,profiletime,username;
+    String profilename,profilephone,profilefromto,profiledate,profiletime,username,userphone;
     Button sendrequestbtn;
     String url;
     String status,details;
@@ -43,6 +43,8 @@ public class Riderdetails extends AppCompatActivity {
         sendrequestbtn=findViewById(R.id.sendrequestbtn_id);
 
         profilename=getIntent().getStringExtra("profilename");
+        profilename=profilename.replace(" ","+");
+        profilephone=getIntent().getStringExtra("profilephone");
         profilefromto=getIntent().getStringExtra("profilefromto");
         profiledate=getIntent().getStringExtra("profiledate");
         profiletime=getIntent().getStringExtra("profiletime").trim();
@@ -55,12 +57,15 @@ public class Riderdetails extends AppCompatActivity {
         SharedPreferences sharedPreferences= getSharedPreferences("userdetails", 0);
         username=sharedPreferences.getString("username","");
         username=username.replace(" ","+");
+        userphone=sharedPreferences.getString("userphone","");
+        userphone=userphone.replace(" ","+");
+
 
         sendrequestbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                url = "http://fullmoonfilms.000webhostapp.com/requeststatus.php?username1="+ username +"&username2="+profilename;
+                url = "http://fullmoonfilms.000webhostapp.com/requeststatus.php?username1="+ username+"&userphone1="+userphone+"&username2="+profilename +"&userphone2="+profilephone;
                 sendRequest();
             }
         });
