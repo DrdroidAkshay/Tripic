@@ -14,8 +14,11 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import static com.tripic.tripic.R.*;
 
@@ -29,6 +32,8 @@ public class home_screen extends AppCompatActivity {
     RelativeLayout relativeLayout;
     LinearLayout bottomtabs;
     Animation slidedowntop,slideuptop,slidedownbottom,slideupbottom,fadein,fadeout;
+    ImageView notificationicon;
+    CircularImageView notificationpointer;
     Button havingCar,nothavingCar;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -51,6 +56,8 @@ public class home_screen extends AppCompatActivity {
         bottomtabs =findViewById(id.bottomtabs_id);
         toolbar=  findViewById(id.toolbar_id);
         relativeLayout=findViewById(id.relativelayout_id);
+        notificationicon=findViewById(id.notificationicon_id);
+        notificationpointer=findViewById(id.notificationpointer_id);
 
         slideuptop= AnimationUtils.loadAnimation(this,R.anim.slideuptop);
         slidedowntop= AnimationUtils.loadAnimation(this, anim.slidedowntop);
@@ -164,6 +171,21 @@ public class home_screen extends AppCompatActivity {
                 Intent intent=new Intent(home_screen.this,registration.class);
                 startActivity(intent);
                 return true;
+            }
+        });
+
+        notificationicon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(home_screen.this,NotificationActivity.class);
+                startActivity(intent);
+            }
+        });
+        notificationpointer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(home_screen.this,NotificationActivity.class);
+                startActivity(intent);
             }
         });
     }
