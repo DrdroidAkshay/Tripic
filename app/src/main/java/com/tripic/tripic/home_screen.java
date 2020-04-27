@@ -52,7 +52,7 @@ public class home_screen extends AppCompatActivity {
     Button havingCar, nothavingCar;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-    String url, status, username,userphone, requestername,requesterphone;
+    String url,url2, status, username,userphone, requestername,requesterphone;
     Handler handler = new Handler();
 
     @Override
@@ -212,7 +212,7 @@ public class home_screen extends AppCompatActivity {
         username = username.replace(" ", "+");
         userphone = userphone.replace(" ", "+");
         url = "http://fullmoonfilms.000webhostapp.com/notificationmanagement.php?username=" + username+"&userphone="+userphone;
-
+        url2 = "http://fullmoonfilms.000webhostapp.com/acceptnotificationmanagement.php?username=" + username+"&userphone="+userphone;
         handler.postDelayed(m_Runnable, 1000);
 //        notificationcheck();
     }
@@ -231,11 +231,50 @@ public class home_screen extends AppCompatActivity {
         public void run() {
             handler.postDelayed(m_Runnable, 3000);
             notificationcheck();
+            acceptnotificationcheck();
         }
 
     };
     private void notificationcheck() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            Log.i("tttttttttt", "aaaaaaaaaaaa");
+                            JSONArray jsonArray = new JSONArray(response);
+                            JSONObject o = jsonArray.getJSONObject(0);
+                            Log.i("tttttttttt", "ppppppppppppp");
+
+                            status = o.getString("result");
+                            requestername = o.getString("requestername");
+                            requesterphone = o.getString("requesterphone");
+                            Log.i("tttttttttt", "cccccccccc");
+
+                            Log.i("cccccccccc", status);
+                            if (status.equals("success")) {
+                                notificationpointer.setVisibility(View.VISIBLE);
+                            } else {
+                                notificationpointer.setVisibility(View.GONE);
+                            }
+                        } catch (JSONException ex) {
+                            Log.i("bbbbbbbbbb", String.valueOf(ex));
+                            notificationpointer.setVisibility(View.GONE);
+                            ex.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+    private void acceptnotificationcheck() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url2,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

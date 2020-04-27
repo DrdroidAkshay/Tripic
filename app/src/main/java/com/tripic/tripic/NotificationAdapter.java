@@ -1,6 +1,7 @@
 package com.tripic.tripic;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -54,14 +55,13 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 //                Toast.makeText(context,listitem.getUsername(),
 //                        Toast.LENGTH_SHORT).show();
 //
-//                final Intent intent;
-//                intent =  new Intent(context, Riderdetails.class);
-////                intent.putExtra("profilename",listitem.getUsername());
-////                intent.putExtra("profilefromto",listitem.getRidefrom()+" To "+listitem.getRideto());
-//                intent.putExtra("requestername",requestername);
-//                intent.putExtra("requesterphone",requestephone);
-////                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                context.startActivity(intent);
+                final Intent intent;
+                intent =  new Intent(context, NotificationDetailActivity.class);
+                intent.putExtra("requeststatus",requeststatus);
+                intent.putExtra("requestername",requestername);
+                intent.putExtra("requesterphone",requestephone);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
 

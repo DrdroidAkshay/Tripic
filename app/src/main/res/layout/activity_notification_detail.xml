@@ -1,0 +1,71 @@
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@drawable/themeimage1"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/profilepic_id"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_marginTop="-100dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/profilepicroundcontainer"/>
+    <TextView
+        android:id="@+id/profilename_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:textSize="20dp"/>
+    <TextView
+        android:id="@+id/profilephone_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Phone"
+        android:textColorHint="@color/colorWhite"
+        android:textColor="@color/colorWhite"
+        android:textSize="20dp"/>
+    <TextView
+        android:id="@+id/requeststatus_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Request Accepted"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_marginTop="70dp"
+        android:textColor="@color/colorLightGreen"
+        android:textSize="22dp"
+        />
+    <TextView
+        android:id="@+id/contactmethod_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact Using Phone"
+        android:layout_marginTop="5dp"
+        android:textColorHint="@color/colorWhite"
+        android:textColor="@color/colorWhite"
+        android:textSize="15dp"
+        />
+
+    <Button
+        android:id="@+id/acceptrequestbtn_id"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/roundbtnwhite"
+        android:text="Accept Request"
+        android:fontFamily="monospace"
+        android:textColor="@color/colorBlack"/>
+    <Button
+        android:id="@+id/cancelrequestbtn_id"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundbtntransparentwhite"
+        android:text="Cancel Request"
+        android:fontFamily="monospace"
+        android:textColor="@color/colorWhite"/>
+
+</LinearLayout>
