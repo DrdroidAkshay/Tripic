@@ -3,6 +3,7 @@ package com.tripic.tripic;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -29,5 +30,12 @@ public class MyAccount extends AppCompatActivity {
 
         myaccountname.setText(name);
         myaccountphone.setText(phone);
+
+        profilepicchangebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
     }
 }
