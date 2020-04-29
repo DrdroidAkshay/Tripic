@@ -1,5 +1,6 @@
 package com.tripic.tripic;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ public class MyAccount extends AppCompatActivity {
     CircularImageView profilepic,profilepicchangebtn;
     TextView myaccountname,myaccountphone;
     String name,phone;
+    private  static final int gallerypic=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,10 @@ public class MyAccount extends AppCompatActivity {
         profilepicchangebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Intent galleryintent=new Intent();
+                galleryintent.setAction(Intent.ACTION_GET_CONTENT);
+                galleryintent.setType("image/*");
+                startActivityForResult(galleryintent,gallerypic);
             }
         });
     }
