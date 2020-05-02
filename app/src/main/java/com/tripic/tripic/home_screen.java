@@ -229,7 +229,7 @@ public class home_screen extends AppCompatActivity {
 
     private final Runnable m_Runnable = new Runnable() {
         public void run() {
-            handler.postDelayed(m_Runnable, 3000);
+            handler.postDelayed(m_Runnable, 50000);
             notificationcheck();
             acceptnotificationcheck();
         }
@@ -241,15 +241,12 @@ public class home_screen extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            Log.i("tttttttttt", "aaaaaaaaaaaa");
                             JSONArray jsonArray = new JSONArray(response);
                             JSONObject o = jsonArray.getJSONObject(0);
-                            Log.i("tttttttttt", "ppppppppppppp");
 
                             status = o.getString("result");
                             requestername = o.getString("requestername");
                             requesterphone = o.getString("requesterphone");
-                            Log.i("tttttttttt", "cccccccccc");
 
                             Log.i("cccccccccc", status);
                             if (status.equals("success")) {
@@ -279,15 +276,12 @@ public class home_screen extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            Log.i("tttttttttt", "aaaaaaaaaaaa");
                             JSONArray jsonArray = new JSONArray(response);
                             JSONObject o = jsonArray.getJSONObject(0);
-                            Log.i("tttttttttt", "ppppppppppppp");
 
                             status = o.getString("result");
                             requestername = o.getString("requestername");
                             requesterphone = o.getString("requesterphone");
-                            Log.i("tttttttttt", "cccccccccc");
 
                             Log.i("cccccccccc", status);
                             if (status.equals("success")) {
