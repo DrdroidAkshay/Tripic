@@ -3,6 +3,7 @@ package com.tripic.tripic;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -36,11 +37,13 @@ public class MyAccount extends AppCompatActivity {
 
     CircularImageView profilepic,profilepicchangebtn;
     TextView myaccountname,myaccountphone;
-    String name,phone,status,details;
+    String name,phone,status,details,profileimage;
     private  static final int gallerypic=1;
     Bitmap bitmap;
     String image;
     private String uploadurl;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
 
 
@@ -54,9 +57,16 @@ public class MyAccount extends AppCompatActivity {
         myaccountname=findViewById(R.id.myaccountname_id);
         myaccountphone=findViewById(R.id.myaccountphone_id);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("userdetails", 0);
+        sharedPreferences = getSharedPreferences("userdetails", 0);
         name = sharedPreferences.getString("username", "");
         phone = sharedPreferences.getString("userphone", "");
+        profileimage = sharedPreferences.getString("profileimage", "");
+        if (!profileimage.equalsIgnoreCase("")){
+            byte[] b = Base64.decode(profileimage, Base64.DEFAULT);
+            Bitmap bm = BitmapFactory.decodeByteArray(b, 0, b.length);
+            profilepic.setImageBitmap(bm);
+        }
+
         name=name.replace(" ", "+");
         myaccountname.setText(name);
         myaccountphone.setText(phone);
@@ -112,6 +122,7 @@ public class MyAccount extends AppCompatActivity {
 
                     profilepic.setImageBitmap(bitmap);
                     image=imagetostring(bitmap);
+
                     Log.i("xxxxxxxx","aaaaaaaaaaaa");
                     uploadimage(name,image);
                 } catch (IOException e) {
@@ -143,6 +154,11 @@ public class MyAccount extends AppCompatActivity {
                             details = o.getString("details");
                             Toast.makeText(MyAccount.this, details,
                                     Toast.LENGTH_LONG).show();
+                            if (status.equals("success")){
+                                editor=sharedPreferences.edit();
+                                editor.putString("profileimage",image);
+                                editor.commit();
+                            }
                         } catch (JSONException ex) {
                             Log.i("jjjjjjjjjj", "jjjjjjjjjj");
 
