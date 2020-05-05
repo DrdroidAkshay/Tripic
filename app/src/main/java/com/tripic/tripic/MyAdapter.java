@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,8 +71,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     public  class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView listitemusername,listitemdate,listitemtime;
+        public TextView listitemusername,listitemdate,listitemtime,listitemprice;
         public LinearLayout linearLayout;
+        public ImageView listitemimage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,6 +81,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             listitemdate=(TextView) itemView.findViewById(R.id.date_id);
             listitemtime=(TextView) itemView.findViewById(R.id.time_id);
             linearLayout=(LinearLayout) itemView.findViewById(R.id.cardviewlinearlayout_id);
+            listitemimage=itemView.findViewById(R.id.pic_id);
+            listitemprice=itemView.findViewById(R.id.price_id);
 
         }
     }
