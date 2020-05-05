@@ -71,7 +71,7 @@ public class MyAccount extends AppCompatActivity {
         myaccountname.setText(name);
         myaccountphone.setText(phone);
         Log.i("aaaaaaaaaa","aaaaaaaaaaaa");
-        uploadurl = "http://fullmoonfilms.000webhostapp.com/uploadprofilepic.php?name="+name+"profilepic&image="+image;
+        uploadurl = "http://fullmoonfilms.000webhostapp.com/uploadprofilepic.php?name="+name+"&image="+image+"&phone="+phone;
 
 
         profilepicchangebtn.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +122,7 @@ public class MyAccount extends AppCompatActivity {
 
                     profilepic.setImageBitmap(bitmap);
                     image=imagetostring(bitmap);
-
+                    Log.i("image",image);
                     Log.i("xxxxxxxx","aaaaaaaaaaaa");
                     uploadimage(name,image);
                 } catch (IOException e) {
@@ -177,8 +177,9 @@ public class MyAccount extends AppCompatActivity {
                 }) {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("name", name + "profilepic");
+                params.put("name", name);
                 params.put("image", image);
+                params.put("phone", phone);
                 return params;
             }
         };
