@@ -1,5 +1,6 @@
 package com.tripic.tripic;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -44,6 +45,7 @@ public class MyAccount extends AppCompatActivity {
     private String uploadurl;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    ProgressDialog loading;
 
 
 
@@ -141,6 +143,7 @@ public class MyAccount extends AppCompatActivity {
 
     }
     private void uploadimage(final String name, final String image) {
+//        loading=ProgressDialog.show(MyAccount.this,"Please wait",null,true,true);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, uploadurl,
                 new Response.Listener<String>() {
                     @Override
@@ -155,6 +158,7 @@ public class MyAccount extends AppCompatActivity {
                             Toast.makeText(MyAccount.this, details,
                                     Toast.LENGTH_LONG).show();
                             if (status.equals("success")){
+//                                loading.dismiss();
                                 editor=sharedPreferences.edit();
                                 editor.putString("profileimage",image);
                                 editor.commit();
@@ -191,7 +195,7 @@ public class MyAccount extends AppCompatActivity {
 
     private String imagetostring( Bitmap bitmap){
         ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG,30,byteArrayOutputStream);
         byte[] imgbytes=byteArrayOutputStream.toByteArray();
         Log.i("lllllll","llllllll");
 
