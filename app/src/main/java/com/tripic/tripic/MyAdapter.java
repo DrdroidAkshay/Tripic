@@ -12,6 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
@@ -61,7 +65,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     context.startActivity(intent);
                 }
             });
-
+        String name = listitem.getUsername().replace(" ", "+");
+        String loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + name + ".jpeg";
+        loadimages(context,loadimageurl, viewHolder.listitemimage);
 
     }
 
@@ -86,5 +92,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         }
     }
+    private void loadimages(Context context,String loadimageurl, ImageView profilepic) {
 
+        Picasso.with(context).load(loadimageurl).error(R.drawable.profilepic).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(profilepic, new com.squareup.picasso.Callback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
+
+    }
 }

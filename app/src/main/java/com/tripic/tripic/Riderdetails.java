@@ -16,6 +16,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +32,7 @@ public class Riderdetails extends AppCompatActivity {
     Button sendrequestbtn;
     String url;
     String status,details;
+    String loadimageurl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,9 @@ public class Riderdetails extends AppCompatActivity {
         userphone=sharedPreferences.getString("userphone","");
         userphone=userphone.replace(" ","+");
 
+        profilename = profilename.replace(" ", "+");
+        loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + profilename + ".jpeg";
+        loadimages(loadimageurl, profilepic);
 
         sendrequestbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +76,7 @@ public class Riderdetails extends AppCompatActivity {
                 sendRequest();
             }
         });
+
     }
     private void sendRequest(){
         ProgressDialog loading=ProgressDialog.show(Riderdetails.this,"Please wait",null,true,true);
@@ -97,5 +105,21 @@ public class Riderdetails extends AppCompatActivity {
                 });
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+    }
+    private void loadimages(String loadimageurl, ImageView profilepic) {
+
+        Picasso.with(Riderdetails.this).load(loadimageurl).error(R.drawable.profilepic).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(profilepic, new com.squareup.picasso.Callback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
+
     }
 }

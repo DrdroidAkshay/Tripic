@@ -17,8 +17,7 @@
                 android:orientation="horizontal"
                 android:gravity="center"
                 android:padding="20dp">
-                <ImageView
-                    android:layout_weight="1"
+                <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/notificationpic_id"
                     android:layout_width="50dp"
                     android:layout_height="50dp"

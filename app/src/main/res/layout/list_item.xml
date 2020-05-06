@@ -16,7 +16,7 @@
             android:orientation="horizontal"
             android:padding="10dp"
             >
-            <ImageView
+            <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/pic_id"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

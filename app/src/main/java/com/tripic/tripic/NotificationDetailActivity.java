@@ -67,6 +67,9 @@ public class NotificationDetailActivity extends AppCompatActivity {
             contactmethod.setVisibility(View.GONE);
         }
 
+        profilename = profilename.replace(" ", "+");
+        loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + profilename + ".jpeg";
+        loadimages(loadimageurl, profilepic);
 
         acceptrequestbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,14 +87,6 @@ public class NotificationDetailActivity extends AppCompatActivity {
                 profilephone = profilephone.replace(" ", "+");
                 cancelurl = "http://fullmoonfilms.000webhostapp.com/cancelrequest.php?username1=" + profilename + "&userphone1=" + profilephone + "&username2=" + username + "&userphone2=" + userphone;
                 cancelRequest();
-            }
-        });
-        profilepic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                profilename = profilename.replace(" ", "+");
-                loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + profilename + ".jpeg";
-                loadimages(loadimageurl, profilepic);
             }
         });
 
@@ -159,7 +154,7 @@ public class NotificationDetailActivity extends AppCompatActivity {
 
     private void loadimages(String loadimageurl, ImageView profilepic) {
 
-        Picasso.with(NotificationDetailActivity.this).load(loadimageurl).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(profilepic, new com.squareup.picasso.Callback() {
+        Picasso.with(NotificationDetailActivity.this).load(loadimageurl).error(R.drawable.profilepic).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(profilepic, new com.squareup.picasso.Callback() {
             @Override
             public void onSuccess() {
 

@@ -68,10 +68,10 @@ public class MyAccount extends AppCompatActivity {
             Bitmap bm = BitmapFactory.decodeByteArray(b, 0, b.length);
             profilepic.setImageBitmap(bm);
         }
-
-        name=name.replace(" ", "+");
         myaccountname.setText(name);
         myaccountphone.setText(phone);
+        name=name.replace(" ", "+");
+
         Log.i("aaaaaaaaaa","aaaaaaaaaaaa");
         uploadurl = "http://fullmoonfilms.000webhostapp.com/uploadprofilepic.php?name="+name+"&image="+image+"&phone="+phone;
 

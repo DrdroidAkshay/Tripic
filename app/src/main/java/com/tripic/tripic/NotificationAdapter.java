@@ -8,8 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -48,6 +53,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             viewHolder.NotificationMsg.setText(requestername + " has accepted your ride request.");
 
         }
+
         viewHolder.notificationholder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +70,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 context.startActivity(intent);
             }
         });
+        String name = requestername.replace(" ", "+");
+        String loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + name + ".jpeg";
+        loadimages(context,loadimageurl, viewHolder.profilepic);
 
 
     }
@@ -77,14 +86,31 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         public TextView NotificationMsg;
         public Button viewdetailbtn;
         public LinearLayout notificationholder;
+        public ImageView profilepic;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             NotificationMsg=itemView.findViewById(R.id.notificationmsg_id);
             viewdetailbtn=itemView.findViewById(R.id.viewdetailbtn_id);
             notificationholder=itemView.findViewById(R.id.notificationholder_id);
-
+            profilepic=itemView.findViewById(R.id.notificationpic_id);
         }
+    }
+    private void loadimages(Context context,String loadimageurl, ImageView profilepic) {
+
+        Picasso.with(context).load(loadimageurl).error(R.drawable.profilepic).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(profilepic, new com.squareup.picasso.Callback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
+
     }
 
 }
