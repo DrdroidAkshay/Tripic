@@ -16,11 +16,11 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:padding="20dp">
+                android:padding="10dp">
                 <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/notificationpic_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginRight="20dp"
                     android:src="@drawable/profilepic"/>
                 <TextView
