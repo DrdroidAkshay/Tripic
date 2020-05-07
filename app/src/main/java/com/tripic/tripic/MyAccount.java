@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
 import org.json.JSONArray;
@@ -68,9 +72,12 @@ public class MyAccount extends AppCompatActivity {
             Bitmap bm = BitmapFactory.decodeByteArray(b, 0, b.length);
             profilepic.setImageBitmap(bm);
         }
-        myaccountname.setText(name);
+        String myname=name.replace("+", " ");
+        myaccountname.setText(myname);
         myaccountphone.setText(phone);
         name=name.replace(" ", "+");
+        String loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + phone + ".jpeg";
+        loadimages(loadimageurl, profilepic);
 
         Log.i("aaaaaaaaaa","aaaaaaaaaaaa");
         uploadurl = "http://fullmoonfilms.000webhostapp.com/uploadprofilepic.php?name="+name+"&image="+image+"&phone="+phone;
@@ -200,6 +207,22 @@ public class MyAccount extends AppCompatActivity {
         Log.i("lllllll","llllllll");
 
         return Base64.encodeToString(imgbytes,Base64.DEFAULT);
+
+    }
+    private void loadimages(String loadimageurl, ImageView profilepic) {
+
+        Picasso.with(MyAccount.this).load(loadimageurl).error(R.drawable.profilepic).memoryPolicy(MemoryPolicy.NO_CACHE).networkPolicy(NetworkPolicy.NO_CACHE).into(profilepic, new com.squareup.picasso.Callback() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
+
 
     }
 
