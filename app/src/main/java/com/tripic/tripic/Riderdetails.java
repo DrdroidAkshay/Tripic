@@ -64,8 +64,8 @@ public class Riderdetails extends AppCompatActivity {
         userphone=sharedPreferences.getString("userphone","");
         userphone=userphone.replace(" ","+");
 
-        profilename = profilename.replace(" ", "+");
-        loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + profilename + ".jpeg";
+        profilephone = profilephone.replace(" ", "+");
+        loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + profilephone + ".jpeg";
         loadimages(loadimageurl, profilepic);
 
         sendrequestbtn.setOnClickListener(new View.OnClickListener() {

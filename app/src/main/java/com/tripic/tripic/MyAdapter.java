@@ -65,8 +65,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                     context.startActivity(intent);
                 }
             });
-        String name = listitem.getUsername().replace(" ", "+");
-        String loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + name + ".jpeg";
+        String phone = listitem.getUserphone().replace(" ", "+");
+        String loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + phone + ".jpeg";
         loadimages(context,loadimageurl, viewHolder.listitemimage);
 
     }

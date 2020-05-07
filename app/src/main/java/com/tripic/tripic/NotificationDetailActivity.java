@@ -67,8 +67,8 @@ public class NotificationDetailActivity extends AppCompatActivity {
             contactmethod.setVisibility(View.GONE);
         }
 
-        profilename = profilename.replace(" ", "+");
-        loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + profilename + ".jpeg";
+        profilephone = profilephone.replace(" ", "+");
+        loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + profilephone + ".jpeg";
         loadimages(loadimageurl, profilepic);
 
         acceptrequestbtn.setOnClickListener(new View.OnClickListener() {

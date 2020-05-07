@@ -70,8 +70,8 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 context.startActivity(intent);
             }
         });
-        String name = requestername.replace(" ", "+");
-        String loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + name + ".jpeg";
+        String phone = requestephone.replace(" ", "+");
+        String loadimageurl = "http://fullmoonfilms.000webhostapp.com/Userprofilepics/" + phone + ".jpeg";
         loadimages(context,loadimageurl, viewHolder.profilepic);
 
 
