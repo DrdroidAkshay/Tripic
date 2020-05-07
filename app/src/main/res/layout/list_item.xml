@@ -14,7 +14,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="2dp"
             >
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/pic_id"
@@ -62,6 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="₹100"
+                    android:visibility="invisible"
                     android:textColor="@color/colorGreen"
                     android:textColorHint="@color/colorGreen"
                     android:textSize="20dp"/>
