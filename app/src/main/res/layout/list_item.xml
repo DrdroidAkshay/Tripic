@@ -65,7 +65,7 @@
                     android:id="@+id/price_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="₹100"
+                    android:hint="₹50"
                     android:visibility="invisible"
                     android:textColor="@color/colorGreen"
                     android:textColorHint="@color/colorGreen"
