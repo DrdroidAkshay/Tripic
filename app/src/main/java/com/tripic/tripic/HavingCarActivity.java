@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -29,10 +28,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.DateFormat;
 import java.util.Calendar;
 
-public class HavingCarActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class HavingCarActivity extends AppCompatActivity{
 
     EditText from,to;
     TextView date,time;
@@ -40,6 +38,8 @@ public class HavingCarActivity extends AppCompatActivity implements DatePickerDi
     String status;
     String details;
     TimePickerDialog timePickerDialog;
+    int mYear,mMonth,mDay;
+    public static final String[] MONTHS = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +56,7 @@ public class HavingCarActivity extends AppCompatActivity implements DatePickerDi
         date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                DialogFragment datepicker= new DatePickerFragment();
-                datepicker.show(getSupportFragmentManager(),"date picker");
+                pickdate();
 
 
             }
@@ -189,15 +187,26 @@ public class HavingCarActivity extends AppCompatActivity implements DatePickerDi
         createRide.execute(urlsuffix);
     }
 
-    @Override
-    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
-        Calendar calendar= Calendar.getInstance();
-        calendar.set(Calendar.YEAR,year);
-        calendar.set(Calendar.MONTH,month);
-        calendar.set(Calendar.DAY_OF_MONTH,day);
+    public void pickdate() {
+        // Get Current Date
+        final Calendar c = Calendar.getInstance();
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
 
-        String DateSelected= DateFormat.getDateInstance(DateFormat.DEFAULT).format(calendar.getTime());
-        date.setText(DateSelected);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+
+                        date.setText(MONTHS[monthOfYear]+" "+dayOfMonth + ", " + year);
+
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
     }
 }
