@@ -13,7 +13,6 @@
         android:gravity="center"
         android:fontFamily="casual"
         android:textSize="20dp"
-        android:padding="0dp"
         android:background="@color/colorTransparentWhite"
         android:textColor="@color/colorBlack"/>
 
