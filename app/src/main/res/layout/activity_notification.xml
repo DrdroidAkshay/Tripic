@@ -17,7 +17,7 @@
         android:background="@color/colorTransparentWhite"
         android:textColor="@color/colorBlack"/>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:paddingTop="7dp"
         android:id="@+id/notificationrecyclerview_id"
         android:layout_width="match_parent"
