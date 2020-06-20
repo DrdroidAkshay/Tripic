@@ -44,8 +44,6 @@
                     android:visibility="gone"
                     app:civ_shadow_radius="1"/>
 
-
-
             </RelativeLayout>
 
         </android.support.v7.widget.Toolbar>
