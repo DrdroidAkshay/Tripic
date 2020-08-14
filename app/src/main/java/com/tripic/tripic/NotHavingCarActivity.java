@@ -45,7 +45,7 @@ public class NotHavingCarActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_having_car);
+        setContentView(R.layout.activity_not_having_car);
 
         from=findViewById(R.id.from_id);
         to=findViewById(R.id.to_id);

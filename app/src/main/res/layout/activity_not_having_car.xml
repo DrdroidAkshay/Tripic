@@ -88,6 +88,18 @@
         android:background="@color/colorTransparentWhite"
         >
     </LinearLayout>
+    <EditText
+        android:id="@+id/requiredseats_id"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="Required Seats"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTransparentWhite"
+        android:backgroundTint="@color/colorTransparentWhite"
+        android:fontFamily="casual"
+        />
     <Button
         android:id="@+id/havingcarbookingbtn_id"
         android:layout_width="200dp"
